@@ -4,6 +4,9 @@ inputs:
   CI_COMMIT_BRANCH:
     description: 'Commit branch'
     required: true
+  HOST_IP:
+    description: 'Host IP'
+    required: false
   DEV_ENV_HOST_IP:
     description: 'Host IP for the dev env'
     required: false
@@ -45,6 +48,7 @@ runs:
   image: 'Dockerfile'
   env:
     CI_COMMIT_BRANCH: ${{ inputs.CI_COMMIT_BRANCH }}
+    HOST_IP: ${{ inputs.HOST_IP }}
     DEV_ENV_HOST_IP: ${{ inputs.DEV_ENV_HOST_IP }}
     DEV_MONGODB__DATABASE_NAME : ${{ inputs.DEV_MONGODB__DATABASE_NAME }}
     DEV_AZURESTORAGE__CONTAINER_NAME: ${{ inputs.DEV_AZURESTORAGE__CONTAINER_NAME }}
