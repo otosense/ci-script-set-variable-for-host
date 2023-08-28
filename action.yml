@@ -7,6 +7,12 @@ inputs:
   HOST_IP:
     description: 'Host IP'
     required: false
+  MONGODB__DATABASE_NAME :
+    description: 'Mongodb database name'
+    required: false
+  AZURESTORAGE__CONTAINER_NAME:
+    description: 'Azure storage container name'
+    required: false
   DEV_ENV_HOST_IP:
     description: 'Host IP for the dev env'
     required: false
@@ -49,6 +55,8 @@ runs:
   env:
     CI_COMMIT_BRANCH: ${{ inputs.CI_COMMIT_BRANCH }}
     HOST_IP: ${{ inputs.HOST_IP }}
+    MONGODB__DATABASE_NAME : ${{ inputs.MONGODB__DATABASE_NAME }}
+    AZURESTORAGE__CONTAINER_NAME: ${{ inputs.AZURESTORAGE__CONTAINER_NAME }}
     DEV_ENV_HOST_IP: ${{ inputs.DEV_ENV_HOST_IP }}
     DEV_MONGODB__DATABASE_NAME : ${{ inputs.DEV_MONGODB__DATABASE_NAME }}
     DEV_AZURESTORAGE__CONTAINER_NAME: ${{ inputs.DEV_AZURESTORAGE__CONTAINER_NAME }}
@@ -61,6 +69,5 @@ runs:
     STAGING_ENV_HOST_IP: ${{ inputs.STAGING_ENV_HOST_IP }}
     STAGING_MONGODB__DATABASE_NAME: ${{ inputs.STAGING_MONGODB__DATABASE_NAME }}
     STAGING_AZURESTORAGE__CONTAINER_NAME: ${{ inputs.STAGING_AZURESTORAGE__CONTAINER_NAME }}
-
   
 
